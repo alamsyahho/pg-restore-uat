@@ -1,10 +1,10 @@
 ---
-- name: remove old postgres sql file
+- name: remove old postgres sql file {{ pg_dump_file }}
   file:
     name: "{{ pg_dump_file }}"
     state: absent
 
-- name: dump database from production
+- name: dump database {{ db_name }} from production {{ pg_prod_host }}
   command: /usr/bin/pg_dump -U {{ pg_prod_user }} -h {{ pg_prod_host }} -d {{ db_name }} -f {{ pg_dump_file }}
 
 - name: drop database in {{ ansible_hostname }}
