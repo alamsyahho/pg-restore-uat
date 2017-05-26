@@ -1,5 +1,6 @@
 ---
 db_name: somedb
+db_owner: owner
 pg_dump_file: /var/tmp/{{ db_name }}.sql
 
 # Prod db details

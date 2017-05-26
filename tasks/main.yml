@@ -17,6 +17,7 @@
   postgresql_db:
     name: "{{ db_name }}"
     state: present
+    owner: "{{ db_owner }}"
     login_user: "{{ pg_uat_user }}"
 
 - name: restore database in {{ ansible_hostname }}
