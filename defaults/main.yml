@@ -7,4 +7,5 @@ pg_prod_user: postgres
 pg_prod_host: 10.10.10.100
 
 # Uat db details
+target_db_env: uat
 pg_uat_user: postgres
