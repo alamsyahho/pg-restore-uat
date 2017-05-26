@@ -1,0 +1,10 @@
+---
+db_name: somedb
+pg_dump_file: /var/tmp/{{ db_name }}.sql
+
+# Prod db details
+pg_prod_user: postgres
+pg_prod_host: 10.10.10.100
+
+# Uat db details
+pg_uat_user: postgres
