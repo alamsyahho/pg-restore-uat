@@ -7,18 +7,18 @@
 - name: dump database {{ db_name }} from production {{ pg_prod_host }}
   command: /usr/bin/pg_dump -U {{ pg_prod_user }} -h {{ pg_prod_host }} -d {{ db_name }} -f {{ pg_dump_file }}
 
-- name: drop database in {{ ansible_hostname }}
+- name: drop database {{ db_name }} in {{ ansible_hostname }}
   postgresql_db:
     name: "{{ db_name }}"
     state: absent
     login_user: "{{ pg_uat_user }}"
 
-- name: create database in {{ ansible_hostname }}
+- name: create database {{ db_name }} in {{ ansible_hostname }}
   postgresql_db:
     name: "{{ db_name }}"
     state: present
     owner: "{{ db_owner }}"
     login_user: "{{ pg_uat_user }}"
 
-- name: restore database in {{ ansible_hostname }}
+- name: restore database {{ db_name }} in {{ ansible_hostname }}
   command: /usr/bin/psql -U {{ pg_uat_user }} -d {{ db_name }} -f {{ pg_dump_file }}
